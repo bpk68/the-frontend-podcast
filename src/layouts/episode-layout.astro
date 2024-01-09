@@ -51,7 +51,7 @@ const data = episode?.data;
       content={`https://thefrontendpodcast.site/episodes/${episode.slug}`}
     />
     <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content={data.tags.map((tag) => `${tag},`)} />
+    <meta name="twitter:data2" content={data.tags.join(',')} />
   </Fragment>
 
   <section class="section">

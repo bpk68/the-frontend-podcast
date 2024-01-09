@@ -39,14 +39,6 @@ const allEpisodes = await getCollection('episodes');
 const episodes = allEpisodes
   .filter((episode) => episode.data.tags.includes(tag.name))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
-
-console.log('tag', tag);
-console.log(
-  'tags',
-  allEpisodes.map((episode) => episode.data.tags)
-);
-
-console.log('episodes', episodes);
 ---
 
 <Layout

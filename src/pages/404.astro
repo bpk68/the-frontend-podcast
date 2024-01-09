@@ -36,6 +36,6 @@ import BaseLayout from '../layouts/base-layout.astro';
   const backBtn = document.getElementById('backBtn');
 
   backBtn?.addEventListener('click', () => {
-    window.location = document.referrer;
+    window.location.href = document.referrer;
   });
 </script>
