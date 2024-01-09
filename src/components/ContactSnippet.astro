@@ -67,3 +67,53 @@
     </form>
   </div>
 </section>
+
+<script>
+  const formName = 'contact-request';
+  const action = '/contact/thanks/';
+
+  const encode = (data) => {
+    return Object.keys(data)
+      .map(
+        (key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key])
+      )
+      .join('&');
+  };
+
+  let fields = {};
+
+  const handleChange = (e) => {
+    fields = {
+      ...fields,
+      [e.target.name]: e.target.value,
+    };
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({
+        'form-name': formName,
+        ...fields,
+      }),
+    })
+      .then(() => window.location.replace(action))
+      .catch((error) => alert(error));
+  };
+
+  // adding event handlers
+  document?.getElementById(formName)?.addEventListener('submit', handleSubmit);
+  document
+    ?.getElementById('bot-field')
+    ?.addEventListener('change', handleChange);
+  document?.getElementById('txtName')?.addEventListener('change', handleChange);
+  document
+    ?.getElementById('txtEmail')
+    ?.addEventListener('change', handleChange);
+  document
+    ?.getElementById('txtMessage')
+    ?.addEventListener('change', handleChange);
+</script>
