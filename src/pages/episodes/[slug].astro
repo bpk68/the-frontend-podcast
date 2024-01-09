@@ -1,0 +1,21 @@
+---
+import EpisodeLayout from '../../layouts/episode-layout.astro';
+
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const episodes = await getCollection('episodes');
+
+  return episodes.map((episode) => ({
+    params: { slug: episode.slug },
+    props: { episode },
+  }));
+}
+
+const { episode } = Astro.props;
+const { Content } = await episode.render();
+---
+
+<EpisodeLayout episode={episode}>
+  <Content />
+</EpisodeLayout>

@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/base-layout.astro';
+---
+
+<BaseLayout>
+  <section class="section">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-10 is-offset-1">
+          <div class="content">
+            <h1>404; NO PAGE HERE</h1>
+            <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+            <p>But don't worry, you still have options:</p>
+            <ul>
+              <li>
+                Go{' '}
+                <a href="#previous-page" id="backBtn">
+                  back to the previous page
+                </a>
+              </li>
+              <li>
+                <a href="/">Visit the home page</a> or,
+              </li>
+              <li>
+                Listen to some more <a href="/episodes">lovely episodes</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const backBtn = document.getElementById('backBtn');
+
+  backBtn?.addEventListener('click', () => {
+    window.location = document.referrer;
+  });
+</script>

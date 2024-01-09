@@ -1,0 +1,63 @@
+---
+import { getCollection } from 'astro:content';
+import { kebabCase } from '../lib/utils';
+import { format } from 'date-fns';
+
+const allEpisodes = await getCollection('episodes');
+
+allEpisodes.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<div class="post-feed">
+  {
+    allEpisodes &&
+      allEpisodes.map((episode) => (
+        <article class="blog-post media">
+          <figure class="media-left">
+            <a class="post-thumbnail" href={`/episodes/${episode.slug}`}>
+              <img
+                src="/img/frontendpodcast-logo.png"
+                alt={`featured image thumbnail for post ${episode.data.title}`}
+              />
+            </a>
+          </figure>
+
+          <div class="media-content">
+            <div class="post-meta">
+              <p class="subtitle is-size-6 is-block is-uppercase has-text-grey-light">
+                <time class="published" datetime={episode.data.date.toString()}>
+                  <span class="has-text-primary">
+                    Episode / #{episode.data.episodeNumber}
+                  </span>
+                  <span style={{ float: 'right' }}>
+                    {format(episode.data.date, 'dd MMM, yyyy')}
+                  </span>
+                </time>
+              </p>
+              <h2 class="post-title title is-size-4">
+                <a href={`/episodes/${episode.slug}`}>{episode.data.title}</a>
+              </h2>
+            </div>
+            <div class="post-content">
+              <p>{episode.data.description ? episode.data.description : ''}</p>
+              <p class="post-tags tags">
+                {episode.data.tags.map((tag: string) => (
+                  <a href={`/tags/${kebabCase(tag)}/`} class="tag">
+                    #{tag}
+                  </a>
+                ))}
+              </p>
+              <p class="read-more">
+                <a
+                  href={`/episodes/${episode.slug}`}
+                  class="button is-primary is-rounded is-small"
+                >
+                  listen
+                </a>
+              </p>
+            </div>
+          </div>
+        </article>
+      ))
+  }
+</div>

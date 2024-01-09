@@ -1,0 +1,123 @@
+---
+import Footer from '../components/Footer.astro';
+import Navbar from '../components/Navbar.astro';
+
+import '../assets/styles/styles.scss';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'The Front End - A podcast about tech, development, careers and user interfaces',
+  description = 'A podcast exploring life as a modern day developer, with stories, learning and professional growth, recruitment, and tech careers',
+} = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="/img/icons/apple-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="/img/icons/apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="/img/icons/apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="/img/icons/apple-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="/img/icons/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="/img/icons/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="/img/icons/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="/img/icons/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/img/icons/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/img/icons/android-icon-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/img/icons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="/img/icons/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/img/icons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/img/icons/manifest.json" />
+    <meta name="theme-color" content="#fff" />
+
+    <meta property="og:site_name" content="The Front End Podcast" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content={title} />
+    <meta property="og:url" content="/" />
+    <meta property="og:image" content="/img/frontendpodcast-logo.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Rob Kendal" />
+    <meta name="twitter:site" content="@frontendpodcast" />
+    <meta name="twitter:creator" content="@frontendpodcast" />
+
+    <link
+      defer
+      href="https://fonts.googleapis.com/css?family=Sanchez|Spartan:400,600,700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/b72de24688.js"
+      crossorigin="anonymous"></script>
+
+    <slot name="meta" />
+  </head>
+
+  <body>
+    <Navbar />
+    <slot />
+    <Footer />
+  </body>
+</html>

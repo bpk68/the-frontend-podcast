@@ -1,0 +1,46 @@
+<nav class="navbar is-primary" role="navigation" aria-label="main-navigation">
+  <div class="container">
+    <div class="navbar-brand">
+      <a href="/" class="navbar-item" title="Logo">
+        <img
+          src="/img/logo.svg"
+          alt="The Front End Podcast logo"
+          style="width: 88px;"
+        />
+      </a>
+      {/* Hamburger menu */}
+      <div
+        id="hamburgerMenu"
+        class="navbar-burger burger"
+        data-target="navMenu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <div id="navMenu" class="navbar-menu">
+      <div class="navbar-start has-text-centered">
+        <a class="navbar-item" href="/about"> about</a>
+        <a class="navbar-item" href="/episodes"> episodes</a>
+        <a class="navbar-item" href="/faq"> faq</a>
+        <a class="navbar-item" href="/sponsorship"> sponsorship</a>
+        <a class="navbar-item" href="/guests"> be a guest</a>
+        <a class="navbar-item" href="/contact"> contact</a>
+      </div>
+      <div class="navbar-end has-text-centered"></div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const menu = document.getElementById('navMenu');
+  const hamburger = document.getElementById('hamburgerMenu');
+
+  function toggleHamburger() {
+    menu?.classList.toggle('is-active');
+    hamburger?.classList.toggle('is-active');
+  }
+
+  menu?.addEventListener('click', toggleHamburger);
+</script>

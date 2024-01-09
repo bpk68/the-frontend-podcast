@@ -1,0 +1,14 @@
+a {
+    &.navbar-item {
+        text-decoration: none;
+    }
+}
+
+.navbar {
+    border-bottom: none;
+    box-shadow: none;
+
+    &.is-primary {
+        background-color: $brand-blue;
+    }
+}

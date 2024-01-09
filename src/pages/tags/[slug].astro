@@ -1,0 +1,68 @@
+---
+import { getCollection } from 'astro:content';
+import { kebabCase } from '../../lib/utils';
+import Layout from '../../layouts/inner-layout.astro';
+
+interface Props {
+  tag: {
+    name: string;
+    path: string;
+  };
+}
+export async function getStaticPaths() {
+  const episodes = await getCollection('episodes');
+  const allTags = episodes.map((episode) => episode.data.tags);
+
+  const tags: string[] = [];
+
+  allTags.forEach((tagList) => {
+    tagList.forEach((tag) => {
+      if (!tags.includes(tag)) {
+        tags.push(tag);
+      }
+    });
+  });
+
+  return tags.map((tag) => ({
+    params: { slug: kebabCase(tag) },
+    props: {
+      tag: {
+        name: tag,
+        path: kebabCase(tag),
+      },
+    },
+  }));
+}
+
+const { tag } = Astro.props;
+const allEpisodes = await getCollection('episodes');
+const episodes = allEpisodes
+  .filter((episode) => episode.data.tags.includes(tag.name))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+console.log('tag', tag);
+console.log(
+  'tags',
+  allEpisodes.map((episode) => episode.data.tags)
+);
+
+console.log('episodes', episodes);
+---
+
+<Layout
+  pageTitle={`Episodes tagged with "${tag.name}"`}
+  title="Episode tags and categories"
+>
+  <ul class="taglist">
+    {
+      episodes.map((episode) => (
+        <li>
+          <a href={`/episodes/${episode.slug}`}>{episode.data.title}</a>
+        </li>
+      ))
+    }
+  </ul>
+  <p>
+    <a href="/tags/">Browse all tags</a>
+  </p>
+</Layout>

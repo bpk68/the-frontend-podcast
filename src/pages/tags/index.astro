@@ -1,0 +1,59 @@
+---
+import { getCollection } from 'astro:content';
+import { kebabCase } from '../../lib/utils';
+import Layout from '../../layouts/inner-layout.astro';
+
+interface TagGroup {
+  tagName: string;
+  tagPath: string;
+  count: number;
+}
+
+const episodes = await getCollection('episodes');
+const allEpisodeTags = episodes.map((episode) => episode.data.tags);
+
+const allTags: TagGroup[] = [];
+
+allEpisodeTags.forEach((tags) => {
+  tags.forEach((tag) => {
+    let found = false;
+
+    allTags.forEach((existingTag) => {
+      if (!found && existingTag.tagName === tag) {
+        existingTag.count = existingTag.count + 1;
+        found = true;
+      }
+    });
+
+    if (!found) {
+      // add new tag
+      allTags.push({
+        tagName: tag,
+        tagPath: kebabCase(tag),
+        count: 1,
+      });
+    }
+  });
+});
+
+allTags.sort((a, b) =>
+  a.tagName.toUpperCase() < b.tagName.toUpperCase() ? -1 : 1
+);
+---
+
+<Layout
+  pageTitle="Episode tags and categories"
+  title="Episode tags and categories"
+>
+  <ul class="taglist">
+    {
+      Array.from(allTags).map((tag) => (
+        <li>
+          <a href={`/tags/${tag.tagPath}/`}>
+            {tag.tagName.toLocaleLowerCase()} ({tag.count})
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</Layout>

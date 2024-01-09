@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../layouts/base-layout.astro';
+import AboutSnippet from '../components/AboutSnippet.astro';
+import { kebabCase } from '../lib/utils';
+
+interface Props {
+  episode: {
+    id: string;
+    slug: string;
+    body: string;
+    collection: 'episodes';
+    data: {
+      title: string;
+      episodeNumber: number;
+      date: Date;
+      description: string;
+      tags: string[];
+    };
+  };
+}
+const { episode } = Astro.props;
+const data = episode?.data;
+---
+
+<BaseLayout
+  title={`${episode.data.title} | The Front End Podcast`}
+  description={episode.data.description}
+>
+  <Fragment slot="meta">
+    <meta property="og:title" content={data.title} />
+    <meta property="og:description" content={data.description} />
+    <meta
+      property="og:url"
+      content={`https://thefrontendpodcast.site/episodes/${episode.slug}`}
+    />
+    <meta
+      property="og:image"
+      content="https://thefrontendpodcast.site/img/frontendpodcast-logo.png"
+    />
+    <meta
+      property="article:published_time"
+      content="2019-04-01T08:41:19.000Z"
+    />
+
+    {data.tags.map((tag) => <meta property="article:tag" content={tag} />)}
+
+    <meta name="twitter:title" content={data.title} />
+    <meta name="twitter:description" content={data.description} />
+    <meta
+      name="twitter:url"
+      content={`https://thefrontendpodcast.site/episodes/${episode.slug}`}
+    />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content={data.tags.map((tag) => `${tag},`)} />
+  </Fragment>
+
+  <section class="section">
+    <div class="container content">
+      <div class="columns">
+        <div class="column is-10 is-offset-1">
+          <article class="blog-article">
+            <h1 class="title is-size-2 has-text-weight-bold is-bold-light">
+              Episode #{data.episodeNumber} - {data.title}
+            </h1>
+            <p>{data.description}</p>
+
+            <slot />
+
+            <footer class="post-footer columns">
+              <div class="column">
+                {
+                  data.tags && data.tags.length ? (
+                    <p class="post-tags tags">
+                      {data.tags.map((tag) => (
+                        <a
+                          href={`/tags/${kebabCase(tag)}/`}
+                          class="tag is-white has-text-primary is-rounded"
+                        >
+                          #{tag}
+                        </a>
+                      ))}
+                    </p>
+                  ) : null
+                }
+              </div>
+
+              <div class="column content is-small">
+                <p class="post-share">
+                  <span class="post-share-title">
+                    <strong>Share:</strong>
+                  </span>
+                  <a
+                    target="_blank"
+                    href={`https://twitter.com/intent/tweet?text=${data.title}&amp;url=https://thefrontendpodcast.site${episode.slug}`}
+                    rel="noopener noreferrer"
+                  >
+                    Twitter
+                  </a>
+                  <a
+                    target="_blank"
+                    href={`https://www.facebook.com/sharer.php?u=https://thefrontendpodcast.site${episode.slug}`}
+                    rel="noopener noreferrer"
+                  >
+                    Facebook
+                  </a>
+                  <a
+                    target="_blank"
+                    href={`https://www.linkedin.com/shareArticle?mini=true&url=https://thefrontendpodcast.site${episode.slug}&amp;title=${data.title}&amp;source="The Front End Podcast"`}
+                    rel="noopener noreferrer"
+                  >
+                    LinkedIn
+                  </a>
+                </p>
+              </div>
+            </footer>
+          </article>
+
+          <hr />
+          <AboutSnippet />
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

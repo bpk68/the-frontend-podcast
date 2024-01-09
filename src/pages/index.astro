@@ -1,16 +1,86 @@
 ---
+import BaseLayout from '../layouts/base-layout.astro';
+import EpisodeRoll from '../components/EpisodeRoll.astro';
+import SocialLinks from '../components/SocialLinks.astro';
 
+const title = 'The Front End Podcast';
+const image = '/img/frontend-podcast-bg.png';
+const avatarimage = '/img/podcast-icon.png';
+const heading = 'The Front End';
+const subheading =
+  'A podcast all about web development, learning, careers in tech, and coding origin stories';
+const description = 'This is the official website for The Front End Podcast';
+const intro = {
+  heading: 'What is The Front End all about?',
+  description:
+    "In The Front End podcast, we explore the in's and out's of life as a developer. We delve into challenging topics around modern-day development and technology including learning and professional growth, programming languages, frameworks, tools, techniques, UX/UI, and careers.",
+};
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout>
+  <section
+    class="hero is-primary is-medium has-text-dark page-header home-page-header"
+    style={{
+      backgroundImage: `url(/img/frontend-podcast-bg.png)`,
+    }}
+  >
+    <div class="hero-body has-text-centered">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-three-fifths is-offset-one-fifth">
+            <p class="hero-avatar">
+              <img
+                src="/img/frontendpodcast-logo.png"
+                class="avatar"
+                alt="The Front End logo"
+              />
+            </p>
+            <h1 class="has-text-weight-bold is-size-3-mobile is-size-2-tablet">
+              {title}
+            </h1>
+            <p>{subheading}</p>
+            <SocialLinks />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--gradient">
+    <div class="container">
+      <div class="section">
+        <div class="columns">
+          <div class="column is-10 is-offset-1">
+            <div class="content">
+              <div class="columns">
+                <div class="column is-12">
+                  <h3 class="has-text-weight-semibold is-size-2">
+                    {intro.heading}
+                  </h3>
+                  <p>
+                    {intro.description}
+                  </p>
+                </div>
+              </div>
+
+              <div class="column is-12">
+                <hr />
+                <p class="subtitle is-size-3">Latest episodes</p>
+                <p>&nbsp;</p>
+                <EpisodeRoll />
+
+                <p>&nbsp;</p>
+                <hr />
+                <div class="column is-12 has-text-centered">
+                  <a class="button is-white" href="/episodes">
+                    View all episodes
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
