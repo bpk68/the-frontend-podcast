@@ -72,7 +72,7 @@
   const formName = 'contact-request';
   const action = '/contact/thanks/';
 
-  const encode = (data) => {
+  const encode = (data: any) => {
     return Object.keys(data)
       .map(
         (key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key])
@@ -82,14 +82,14 @@
 
   let fields = {};
 
-  const handleChange = (e) => {
+  const handleChange = (e: any) => {
     fields = {
       ...fields,
       [e.target.name]: e.target.value,
     };
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
 
     fetch('/', {
