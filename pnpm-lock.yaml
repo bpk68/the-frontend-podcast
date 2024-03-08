@@ -16,7 +16,7 @@ dependencies:
     version: 3.0.0
   '@astrojs/sitemap':
     specifier: ^3.0.4
-    version: 3.0.4
+    version: 3.1.1
   astro:
     specifier: ^3.6.3
     version: 3.6.3(sass@1.69.5)(typescript@5.3.2)
@@ -155,8 +155,8 @@ packages:
       kleur: 4.1.5
     dev: false
 
-  /@astrojs/sitemap@3.0.4:
-    resolution: {integrity: sha512-RSqiqs0oD8zTGaClHM0YB8n7e5En+Ihi+6qKthWf47pRkzHpENwlPGvKuEL0kUFXq+GzYot9e2JYH58gtr2q0w==}
+  /@astrojs/sitemap@3.1.1:
+    resolution: {integrity: sha512-qPgdBIcDUaea98mTtLfi5z9oXZpzSjEn/kes70/Ex8FOZZ+DIHVKRYOLOtvy8p+FTXr/9oc7BjmIbTYmYLLJVg==}
     dependencies:
       sitemap: 7.1.1
       zod: 3.22.4
