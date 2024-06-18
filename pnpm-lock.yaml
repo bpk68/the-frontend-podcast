@@ -24,8 +24,8 @@ dependencies:
     specifier: ^2.2.7
     version: 2.2.7
   bulma:
-    specifier: ^0.9.4
-    version: 0.9.4
+    specifier: ^1.0.0
+    version: 1.0.1
   date-fns:
     specifier: ^3.1.0
     version: 3.1.0
@@ -1672,8 +1672,8 @@ packages:
     resolution: {integrity: sha512-E+XQCRwSbaaiChtv6k6Dwgc+bx+Bs6vuKJHHl5kox/BaKbhiXzqQOwK4cO22yElGp2OCmjwVhT3HmxgyPGnJfQ==}
     dev: false
 
-  /bulma@0.9.4:
-    resolution: {integrity: sha512-86FlT5+1GrsgKbPLRRY7cGDg8fsJiP/jzTqXXVqiUZZ2aZT8uemEOHlU1CDU+TxklPEZ11HZNNWclRBBecP4CQ==}
+  /bulma@1.0.1:
+    resolution: {integrity: sha512-+xv/BIAEQakHkR0QVz+s+RjNqfC53Mx9ZYexyaFNFo9wx5i76HXArNdwW7bccyJxa5mgV/T5DcVGqsAB19nBJQ==}
     dev: false
 
   /camel-case@4.1.2:
