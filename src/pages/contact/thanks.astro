@@ -3,32 +3,35 @@ import Layout from '../../layouts/inner-layout.astro';
 ---
 
 <Layout pageTitle="Thanks">
-  <h2>Who's awesome? You're awesome!</h2>
-  <img
-    src="https://media.giphy.com/media/111ebonMs90YLu/giphy.gif"
-    alt="Thumbs up"
-  />
-  <p>
-    Thank you for your interest in featuring on an episode of The Front End
-    podcast. I'll review your details and be in touch soon to arrange a good
-    time to record an episode.
-  </p>
-  <p>
-    In true 'choose your own adventure' style, you can choose where to go next:
-  </p>
-  <ul>
-    <li>
-      Go
-      <a href="#previous-page" id="backBtn"> back to the previous page</a>
-    </li>
-    <li>
-      <a href="/">Visit the home page</a> or,
-    </li>
-    <li>
-      Listen to some more{' '}
-      <a href="/episodes">lovely podcast episodes</a>
-    </li>
-  </ul>
+  <section class="prose prose-lg max-w-none">
+    <h2>Who's awesome? You're awesome!</h2>
+    <img
+      src="https://media.giphy.com/media/111ebonMs90YLu/giphy.gif"
+      alt="Thumbs up"
+    />
+    <p>
+      Thank you for your interest in featuring on an episode of The Front End
+      podcast. I'll review your details and be in touch soon to arrange a good
+      time to record an episode.
+    </p>
+    <p>
+      In true 'choose your own adventure' style, you can choose where to go
+      next:
+    </p>
+    <ul>
+      <li>
+        Go
+        <a href="#previous-page" id="backBtn"> back to the previous page</a>
+      </li>
+      <li>
+        <a href="/">Visit the home page</a> or,
+      </li>
+      <li>
+        Listen to some more{' '}
+        <a href="/episodes">lovely podcast episodes</a>
+      </li>
+    </ul>
+  </section>
 </Layout>
 
 <script>

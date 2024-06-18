@@ -4,18 +4,22 @@ import ContactSnippet from '../../components/ContactSnippet.astro';
 ---
 
 <Layout pageTitle="Contact us">
-  <p>
-    If you'd like to ask questions about the show, send some feedback, or
-    anything else, you can get in touch in a few different ways:
-  </p>
-  <ul>
-    <li>
-      <a href="https://twitter.com/frontendpodcast"> Find us on Twitter</a>{' '}
-      and send us a DM
-    </li>
-    <li>Shoot an email over to hello@thefrontendpodcast.site</li>
-    <li>Fill out the form below</li>
-  </ul>
-  <p>&nbsp;</p>
+  <section class="prose prose-lg max-w-none">
+    <p>
+      If you'd like to ask questions about the show, send some feedback, or
+      anything else, you can get in touch in a few different ways:
+    </p>
+    <ul>
+      <li>
+        <a href="https://twitter.com/frontendpodcast"> Find us on Twitter</a>{
+          ' '
+        }
+        and send us a DM
+      </li>
+      <li>Shoot an email over to hello@thefrontendpodcast.site</li>
+      <li>Fill out the form below</li>
+    </ul>
+    <p>&nbsp;</p>
+  </section>
   <ContactSnippet />
 </Layout>

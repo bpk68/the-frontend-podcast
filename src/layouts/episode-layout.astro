@@ -54,71 +54,63 @@ const data = episode?.data;
     <meta name="twitter:data2" content={data.tags.join(',')} />
   </Fragment>
 
-  <section class="section">
-    <div class="container content">
-      <div class="columns">
-        <div class="column is-10 is-offset-1">
-          <article class="blog-article">
-            <h1 class="title is-size-2 has-text-weight-bold is-bold-light">
-              Episode #{data.episodeNumber} - {data.title}
-            </h1>
-            <p>{data.description}</p>
+  <div class="container max-w-5xl">
+    <section class="prose prose-lg max-w-none">
+      <article class="mt-16">
+        <h1 class="title is-size-2 has-text-weight-bold is-bold-light">
+          Episode #{data.episodeNumber} - {data.title}
+        </h1>
+        <p>{data.description}</p>
 
-            <slot />
+        <slot />
 
-            <footer class="post-footer columns">
-              <div class="column">
-                {
-                  data.tags && data.tags.length ? (
-                    <p class="post-tags tags">
-                      {data.tags.map((tag) => (
-                        <a
-                          href={`/tags/${kebabCase(tag)}/`}
-                          class="tag is-white has-text-primary is-rounded"
-                        >
-                          #{tag}
-                        </a>
-                      ))}
-                    </p>
-                  ) : null
-                }
-              </div>
+        <footer
+          class="flex flex-col gap-5 sm:flex-row items-center justify-between"
+        >
+          <div class="flex flex-row flex-wrap items-center gap-4">
+            {
+              data.tags && data.tags.length
+                ? data.tags.map((tag) => (
+                    <a
+                      href={`/tags/${kebabCase(tag)}/`}
+                      class="no-underline text-brand-green-900 hover:underline"
+                    >
+                      #{tag}
+                    </a>
+                  ))
+                : null
+            }
+          </div>
 
-              <div class="column content is-small">
-                <p class="post-share">
-                  <span class="post-share-title">
-                    <strong>Share:</strong>
-                  </span>
-                  <a
-                    target="_blank"
-                    href={`https://twitter.com/intent/tweet?text=${data.title}&amp;url=https://thefrontendpodcast.site${episode.slug}`}
-                    rel="noopener noreferrer"
-                  >
-                    Twitter
-                  </a>
-                  <a
-                    target="_blank"
-                    href={`https://www.facebook.com/sharer.php?u=https://thefrontendpodcast.site${episode.slug}`}
-                    rel="noopener noreferrer"
-                  >
-                    Facebook
-                  </a>
-                  <a
-                    target="_blank"
-                    href={`https://www.linkedin.com/shareArticle?mini=true&url=https://thefrontendpodcast.site${episode.slug}&amp;title=${data.title}&amp;source="The Front End Podcast"`}
-                    rel="noopener noreferrer"
-                  >
-                    LinkedIn
-                  </a>
-                </p>
-              </div>
-            </footer>
-          </article>
+          <div class="flex flex-row flex-wrap items-center gap-4">
+            <p class="text-brand-white-900">Share:</p>
+            <a
+              target="_blank"
+              href={`https://twitter.com/intent/tweet?text=${data.title}&amp;url=https://thefrontendpodcast.site${episode.slug}`}
+              rel="noopener noreferrer"
+            >
+              Twitter
+            </a>
+            <a
+              target="_blank"
+              href={`https://www.facebook.com/sharer.php?u=https://thefrontendpodcast.site${episode.slug}`}
+              rel="noopener noreferrer"
+            >
+              Facebook
+            </a>
+            <a
+              target="_blank"
+              href={`https://www.linkedin.com/shareArticle?mini=true&url=https://thefrontendpodcast.site${episode.slug}&amp;title=${data.title}&amp;source="The Front End Podcast"`}
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+            </a>
+          </div>
+        </footer>
+      </article>
 
-          <hr />
-          <AboutSnippet />
-        </div>
-      </div>
-    </div>
-  </section>
+      <hr />
+      <AboutSnippet />
+    </section>
+  </div>
 </BaseLayout>

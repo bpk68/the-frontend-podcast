@@ -15,67 +15,60 @@ const intro = {
 
 <BaseLayout>
   <section
-    class="hero is-primary is-medium has-text-dark page-header home-page-header"
+    class="hero is-primary is-medium has-text-dark page-header home-page-header pb-14 pt-20"
     style={{
       backgroundImage: `url(/img/frontend-podcast-bg.png)`,
     }}
   >
-    <div class="hero-body has-text-centered">
-      <div class="container">
-        <div class="columns">
-          <div class="column is-three-fifths is-offset-one-fifth">
-            <p class="hero-avatar">
-              <img
-                src="/img/frontendpodcast-logo.png"
-                class="avatar"
-                alt="The Front End logo"
-              />
-            </p>
-            <h1 class="has-text-weight-bold is-size-3-mobile is-size-2-tablet">
-              {title}
-            </h1>
-            <p>{subheading}</p>
-            <SocialLinks />
-          </div>
-        </div>
+    <div class="hero-body text-center text-brand-yellow-900">
+      <div class="space-y-6 max-w-3xl mx-auto">
+        <p class="hero-avatar mb-20">
+          <img
+            src="/img/frontendpodcast-logo.png"
+            class="avatar"
+            alt="The Front End logo"
+          />
+        </p>
+        <h1 class="has-text-weight-bold is-size-3-mobile is-size-2-tablet">
+          {title}
+        </h1>
+        <p>{subheading}</p>
+        <SocialLinks />
       </div>
     </div>
   </section>
 
-  <section class="section section--gradient">
-    <div class="container">
-      <div class="section">
-        <div class="columns">
-          <div class="column is-10 is-offset-1">
-            <div class="content">
-              <div class="columns">
-                <div class="column is-12">
-                  <h3 class="has-text-weight-semibold is-size-2">
-                    {intro.heading}
-                  </h3>
-                  <p>
-                    {intro.description}
-                  </p>
-                </div>
-              </div>
+  <section class="container">
+    <div class="max-w-4xl mx-auto">
+      <div class="py-20 space-y-10">
+        <h2 class="heading-1">
+          {intro.heading}
+        </h2>
+        <p>
+          {intro.description}
+        </p>
+      </div>
 
-              <div class="column is-12">
-                <hr />
-                <p class="subtitle is-size-3">Latest episodes</p>
-                <p>&nbsp;</p>
-                <EpisodeRoll />
+      <div class="space-y-10">
+        <hr />
+        <h2 class="pb-1">Latest episodes</h2>
 
-                <p>&nbsp;</p>
-                <hr />
-                <div class="column is-12 has-text-centered">
-                  <a class="button is-white" href="/episodes">
-                    View all episodes
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <EpisodeRoll />
+
+        <a
+          href="/episodes"
+          class="bg-brand-white-900
+            text-brand-black-900
+            rounded-full
+            px-4
+            py-2
+            text-xl
+            hover:bg-brand-yellow-900
+            hover:text-brand-black-900
+            my-20 block max-w-xs text-center mx-auto"
+        >
+          View all episodes
+        </a>
       </div>
     </div>
   </section>

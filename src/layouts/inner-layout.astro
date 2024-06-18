@@ -15,24 +15,16 @@ const {
 ---
 
 <BaseLayout title={title} description={description}>
-  <section class="hero is-primary is-medium has-text-dark page-header">
-    <div class="hero-body has-text-centered">
-      <div class="container">
-        <h1 class="has-text-weight-bold is-size-3-mobile is-size-2-tablet">
-          {pageTitle}
-        </h1>
-      </div>
+  <section class="hero is-primary page-header text-center bg-brand-yellow-900">
+    <div class="hero-body">
+      <h1 class="text-brand-blue-900">
+        {pageTitle}
+      </h1>
     </div>
   </section>
-  <section class="section section--gradient">
-    <div class="container">
-      <div class="columns">
-        <div class="column is-10 is-offset-1">
-          <div class="content">
-            <slot />
-          </div>
-        </div>
-      </div>
+  <section class="container max-w-5xl">
+    <div class="my-12">
+      <slot />
     </div>
   </section>
 </BaseLayout>

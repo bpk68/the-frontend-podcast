@@ -12,50 +12,50 @@ allEpisodes.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
   {
     allEpisodes &&
       allEpisodes.map((episode) => (
-        <article class="blog-post media">
-          <figure class="media-left">
-            <a class="post-thumbnail" href={`/episodes/${episode.slug}`}>
+        <article class="flex flex-col gap-8 border-b border-b-brand-gray-500 py-14 sm:flex-row">
+          <figure class="w-1/5">
+            <a class="" href={`/episodes/${episode.slug}`}>
               <img
                 src="/img/frontendpodcast-logo.png"
                 alt={`featured image thumbnail for post ${episode.data.title}`}
+                class="w-full"
               />
             </a>
           </figure>
 
-          <div class="media-content">
-            <div class="post-meta">
-              <p class="subtitle is-size-6 is-block is-uppercase has-text-grey-light">
-                <time class="published" datetime={episode.data.date.toString()}>
-                  <span class="has-text-primary">
-                    Episode / #{episode.data.episodeNumber}
-                  </span>
-                  <span style={{ float: 'right' }}>
-                    {format(episode.data.date, 'dd MMM, yyyy')}
-                  </span>
-                </time>
-              </p>
-              <h2 class="post-title title is-size-4">
-                <a href={`/episodes/${episode.slug}`}>{episode.data.title}</a>
-              </h2>
-            </div>
-            <div class="post-content">
-              <p>{episode.data.description ? episode.data.description : ''}</p>
-              <p class="post-tags tags">
-                {episode.data.tags.map((tag: string) => (
-                  <a href={`/tags/${kebabCase(tag)}/`} class="tag">
-                    #{tag}
-                  </a>
-                ))}
-              </p>
-              <p class="read-more">
+          <div class="flex flex-col gap-4 w-4/5">
+            <p class="flex flex-row items-center justify-between text-2xl text-brand-gray-500 font-light">
+              <span class="block">Episode / #{episode.data.episodeNumber}</span>
+              <time class="published" datetime={episode.data.date.toString()}>
+                <span style={{ float: 'right' }}>
+                  {format(episode.data.date, 'dd MMM, yyyy')}
+                </span>
+              </time>
+            </p>
+
+            <h2 class="heading-4">
+              <a href={`/episodes/${episode.slug}`}>{episode.data.title}</a>
+            </h2>
+
+            <p>{episode.data.description ? episode.data.description : ''}</p>
+            <p class="flex flex-row flex-wrap gap-4">
+              {episode.data.tags.map((tag: string) => (
                 <a
-                  href={`/episodes/${episode.slug}`}
-                  class="button is-primary is-rounded is-small"
+                  href={`/tags/${kebabCase(tag)}/`}
+                  class="text-brand-green-900 hover:underline"
                 >
-                  listen
+                  #{tag}
                 </a>
-              </p>
-            </div>
+              ))}
+            </p>
+            <p class="">
+              <a
+                href={`/episodes/${episode.slug}`}
+                class="bg-brand-yellow-900 text-brand-black-900 rounded-full px-4 py-2 text-base hover:bg-brand-green-900 hover:text-brand-black-900"
+              >
+                listen
+              </a>
+            </p>
           </div>
         </article>
       ))
