@@ -1,5 +1,4 @@
 import { defineConfig } from 'astro/config';
-import prefetch from '@astrojs/prefetch';
 import sitemap from '@astrojs/sitemap';
 import compress from 'astro-compress';
 
@@ -7,7 +6,8 @@ import compress from 'astro-compress';
 export default defineConfig({
   compressHTML: true,
   site: 'https://thefrontendpodcast.site',
-  integrations: [sitemap(), prefetch(), compress({ logger: 1 })],
+  integrations: [sitemap(), compress({ logger: 1 })],
+  prefetch: true,
   markdown: {
     shikiConfig: {
       theme: 'nord',
