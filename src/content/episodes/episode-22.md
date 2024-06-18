@@ -1,6 +1,6 @@
 ---
 templateKey: episode
-title: "Matt Studdert, founder of Frontend Mentor, shares his passion for helping others to learn"
+title: 'Matt Studdert, founder of Frontend Mentor, shares his passion for helping others to learn'
 episodeNumber: 22
 date: 2021-03-22T07:33:00.000Z
 description: >-
@@ -23,7 +23,7 @@ Matt hails from a background in fitness and personal training and made the leap 
 
 ## Sponsors
 
-Want to sponsor the show? Head on over to [the sponsorship page] (/sponsorship) to take advantage of early sponsorship!
+Want to sponsor the show? Head on over to [the sponsorship page](/sponsorship) to take advantage of early sponsorship!
 
 ## Resources
 
@@ -36,9 +36,9 @@ You can find out more about me, [Rob Kendal, on my personal website](https://rob
 
 ## Transcript
 
-[00:00:00] Rob Kendal: [00:00:00] So welcome to   episode, checks notes, two. I reached out, I needed like a counter next to me. That shows what episode I'm on episode two of season three. And we're joined today by Matt Studdert it after being recommended as a guest to show by several Twitter peeps where we're very pleased. Welcome Mr. Matt. He's a fellow UK developer and founder of the hugely popular.
+[00:00:00] Rob Kendal: [00:00:00] So welcome to episode, checks notes, two. I reached out, I needed like a counter next to me. That shows what episode I'm on episode two of season three. And we're joined today by Matt Studdert it after being recommended as a guest to show by several Twitter peeps where we're very pleased. Welcome Mr. Matt. He's a fellow UK developer and founder of the hugely popular.
 
-[00:00:17] Front-end mentor. According skills leveling up platform used by close to a hundred thousand people. That's amazing to hone their skills in front end development. Matt hails from a background in fitness and personal training and made the leap to dev life, and  shares a passion for helping others get into development.
+[00:00:17] Front-end mentor. According skills leveling up platform used by close to a hundred thousand people. That's amazing to hone their skills in front end development. Matt hails from a background in fitness and personal training and made the leap to dev life, and shares a passion for helping others get into development.
 
 [00:00:33] He's going to share a story and give some tips on how you can start learning to be a developer. So huge. Welcome to the show, Matt. Thanks for Kevin to the social peer pressure and a polite request to go on the show. How's it all going?
 

@@ -18,7 +18,7 @@ tags:
 
 ## Sponsors
 
-Want to sponsor the show? Head on over to [the sponsorship page] (/sponsorship) to take advantage of early sponsorship!
+Want to sponsor the show? Head on over to [the sponsorship page](/sponsorship) to take advantage of early sponsorship!
 
 ## Resources
 
